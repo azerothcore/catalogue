@@ -14,8 +14,8 @@ function list_modules(search) {
     var repouri  = 'https://api.github.com/search/repositories?q=org%3Aazerothcore'+search+'+fork%3Atrue+topic%3Acore-module+sort%3Astars';
     
     requestJSON(requri, function(json) {
-      if(json.message == "Not Found" || username == '') {
-        $('#ghapidata').html("<h2>No User Info Found</h2>");
+      if(json.message == "Not Found") {
+        $('#ghapidata').html("<h2>Issues retrieveng Organization Info</h2>");
       }
       
       else {
@@ -43,7 +43,7 @@ function list_modules(search) {
         });          
         
         function outputPageContent() {
-          if(repositories.length == 0) { outhtml = outhtml + '<p>No repos!</p></div>'; }
+          if(repositories.length == 0) { outhtml = outhtml + '<p>No Modules Found!</p></div>'; }
           else {
             outhtml = outhtml + '<p><strong>Repos List:</strong></p> <ul>';
             $.each(repositories, function(index) {
