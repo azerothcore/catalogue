@@ -55,7 +55,6 @@ function list_modules(search) {
         } // end outputPageContent()
       } // end else statement
     }); // end requestJSON Ajax call
-  }); // end click event handler
 }
  
 $(function(){
@@ -66,4 +65,6 @@ $(function(){
     var acmodule = $('#acmodule_search').val();
     list_modules(acmodule);
   });
+  
+  list_modules("");
 });
