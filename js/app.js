@@ -10,7 +10,7 @@ function requestJSON(url, callback) {
 function list_modules(search) {
     if (search != "")
         search ='+'+search;
-    var requri   = 'https://api.github.com/users/azerothcore/';
+    var requri   = 'https://api.github.com/users/azerothcore';
     var repouri  = 'https://api.github.com/search/repositories?q=org%3Aazerothcore'+search+'+fork%3Atrue+topic%3Acore-module+sort%3Astars';
     
     requestJSON(requri, function(json) {
