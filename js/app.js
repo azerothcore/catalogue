@@ -46,7 +46,7 @@ function list_modules(search) {
           if(repositories.length == 0) { outhtml = outhtml + '<p>No Modules Found!</p></div>'; }
           else {
             outhtml = outhtml + '<p><strong>Repos List:</strong></p> <ul>';
-            $.each(repositories, function(index) {
+            $.each(repositories.items, function(index) {
               outhtml = outhtml + '<li><a href="'+repositories[index].html_url+'" target="_blank">'+repositories[index].name + '</a></li>';
             });
             outhtml = outhtml + '</ul></div>'; 
