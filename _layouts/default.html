@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="{{ site.description }}">
+    <meta name="author" content="AzerothCore Team">
+    <title>{{ site.title }}{% if page.title %} - {{ page.title }}{% endif %}</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/vue" crossorigin="anonymous"></script>
+    <script src="{{ site.baseurl }}/js/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/">
+            <img src="{{ site.baseurl }}/img/logo-small.png" alt="logo"> AzerothCore
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ site.baseurl }}"><i class="fa fa-list"></i> List</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="https://github.com/AzerothCore/"><i class="fab fa-github"></i> Repository</a>
+                </li>
+                
+                <li class="nav-item">
+                    <a class="nav-link" href="https://www.azerothcore.org"><i class="fa fa-caret-left"></i> Back to Website</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav my-2">
+                <li class="nav-item">
+                    <div class="btn-container-lg">
+                        <a class="btn btn-social" href="https://www.facebook.com/AzerothCore/" target="_blank">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a class="btn btn-social" href="https://twitter.com/azeroth_core" target="_blank">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a class="btn btn-social" href="https://plus.google.com/107715889642766816397" target="_blank">
+                            <i class="fab fa-google-plus"></i>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main role="main">
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div id="jumbo" class="jumbotron">
+            <div class="container">
+                <h1 class="display-3"><img class="inline-logo" src="{{ site.baseurl }}/img/logo.png" alt="logo"> Modules</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            {{ content }}
+        </div> <!-- /container -->
+
+    </main>
+
+    <footer class="footer">
+        <p>
+            &copy; AzerothCore <script>document.write(new Date().getFullYear())</script> &#9679; Brought to you with <i class="fas fa-heart" aria-hidden="true"></i> and C++
+        </p>
+        <p>
+            Most webservices of AzerothCore are powered by <i class="fab fa-github"></i>.
+            You can even edit this site sending a PR <a href="https://github.com/azerothcore/module-catalogue">here</a>
+        </p>
+        <br>
+        <a href="/donators">
+            <img src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" alt="PayPal - The safer, easier way to pay online!">
+        </a>
+    </footer>
+
+
+    <script src="https://use.fontawesome.com/releases/v5.0.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+</body>
+</html>
