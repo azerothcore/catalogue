@@ -36,6 +36,7 @@ layout: default
                             <a :href="'{{ site.baseurl }}/details.html?id=' + (( item.id ))">(( item.name ))</a> <small>by <a target="_blank" :href="item.owner.html_url">(( item.owner.login ))</a></small>
                         </h5>
                         <p class="text-muted text-tiny">Created (( item.created_at | created ))</p>
+                        <p class="text-muted text-tiny"><i class="fas fa-star"></i> (( item.stargazers_count )) | Created (( item.created_at | created ))</p>
                         <p>(( item.description ))</p>
                     </div>
                 </template>
