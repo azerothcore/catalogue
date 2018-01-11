@@ -1,0 +1,9 @@
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+title: AzerothCore Modules
+description: List of modules for the AzerothCore project
+baseurl: "/module-catalogue" # Subfolder of www.azerothcore.org, leave empty for local development
