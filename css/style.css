@@ -17,7 +17,7 @@ nav .svg-inline--fa {
 }
 
 #jumbo {
-    background: #bbdefb url("/img/background.jpg") no-repeat center center;
+    background: #bbdefb url("/modules-catalogue/img/background.jpg") no-repeat center center;
     background-size: cover;
     color: #fff;
 }
