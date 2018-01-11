@@ -10,11 +10,21 @@ title: Details
     <div class="row">
         <div class="col">
             <a class="go-back" href="{{ site.baseurl }}/"><i class="fa fa-caret-left"></i> Go back</a>
-            <br/>
-            <h2 class="display-4"><img class="inline-logo" :src="logo" alt="Logo"> (( repo.name ))</h2>
-            <p class="lead">by <a target="_blank" :href="repo.owner.html_url">(( repo.owner.login ))</a></p>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col">
+            <div class="media">
+                <img class="m-3 logo-small" :src="logo" alt="Logo">
+                <div class="media-body">
+                    <h2 class="display-4 mt-0 mb-1"> (( repo.name ))</h2>
+                    <p class="lead">by <a target="_blank" :href="repo.owner.html_url">(( repo.owner.login ))</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-12 col-md-8">
             <div v-html="compiledReadme"></div>
