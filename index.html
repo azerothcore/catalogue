@@ -18,9 +18,13 @@ layout: default
 
 <div class="row">
     <div class="col">
-        <input id="acmodule_search" class="form-control" type="text" placeholder="Search a module by name..." required="true" v-on:keyup.enter="doSearch" v-model="words"/>
+        <div id="search" class="input-group">
+            <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-search"></i></span>
+            </div>
+             <input id="acmodule_search" class="form-control" type="text" placeholder="Search a module by name..." required="true" v-on:keyup.enter="doSearch" v-model="words"/>
+        </div>
         <p class="text-muted">Press Enter to submit</p>
-        <div id="loading"></div>
     </div>
 </div>
 

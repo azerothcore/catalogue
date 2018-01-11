@@ -22,15 +22,19 @@ nav .svg-inline--fa {
     color: #fff;
 }
 
+#search .input-group-text,
+#search input#acmodule_search {
+  border: none;
+  border-radius: 0;
+  padding: 0.8em;
+  color: #444;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 input#acmodule_search {
-    background: #f0f0f0;
-    color: #444;
+    background: #f9f9f9;
     font-weight: 400;
-    font-family: "Avenir Next", "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-appearance: none; /* iOS */
-    border: none;
-    border-radius: 0;
-    padding: 0.8em;
 }
 
 input#acmodule_search:focus {
