@@ -30,7 +30,7 @@ layout: default
         <ul id="showcase" class="list-unstyled" v-if="items">
             <li class="media" v-for="item of items">
                 <template>
-                    <img class="mr-3 logo-small" :src="item.owner.avatar_url" alt="logo">
+                    <img class="mr-3 logo-small" :src="item.logo" alt="logo">
                     <div class="media-body">
                         <h4 class="mt-0 mb-1">
                             <a :href="'{{ site.baseurl }}/details.html?id=' + (( item.id ))">(( item.name ))</a> <small>by <a target="_blank" :href="item.owner.html_url">(( item.owner.login ))</a></small>
@@ -68,6 +68,15 @@ var mList = new Vue({
   methods: {
     loadItems: function (_items) {
         this.items = _items;
+
+        this.items.forEach((item, idx) =>{
+            item.logo = item.owner.avatar_url;
+            let iconUrl = `https://raw.githubusercontent.com/${item.full_name}/${item.default_branch}/icon.png`;
+            $.get(iconUrl, (res) => {
+                item.logo = iconUrl;
+                Vue.set(mList.items, idx, item);
+            });
+        });
     }
   },
   filters: {

@@ -11,7 +11,7 @@ title: Details
         <div class="col">
             <a class="go-back" href="{{ site.baseurl }}/"><i class="fa fa-caret-left"></i> Go back</a>
             <br/>
-            <h2 class="display-4"><img class="inline-logo" :src="repo.owner.avatar_url" alt="Logo"> (( repo.name ))</h2>
+            <h2 class="display-4"><img class="inline-logo" :src="logo" alt="Logo"> (( repo.name ))</h2>
             <p class="lead">by <a target="_blank" :href="repo.owner.html_url">(( repo.owner.login ))</a></p>
         </div>
     </div>
@@ -44,6 +44,7 @@ title: Details
         el: '#mod_details',
         delimiters: ['((', '))'],
         data: {
+            logo: '',
             repo: null,
             readme: '',
             ready: false
@@ -59,12 +60,18 @@ title: Details
                 {
                     this.repo = info;
                     this.readme = this.repo.description || 'No description';
+                    this.logo = this.repo.owner.avatar_url;
 
                     mStatus.hideMessage();
                     this.ready = true;
 
                     $.get(`https://raw.githubusercontent.com/${this.repo.full_name}/${this.repo.default_branch}/README.md`, (res) => {
                         this.readme = res ? res : this.repo.description;
+                    });
+
+                    let iconUrl = `https://raw.githubusercontent.com/${this.repo.full_name}/${this.repo.default_branch}/icon.png`;
+                    $.get(iconUrl, (res) => {
+                        this.logo = iconUrl;
                     });
                 } else {
                     mStatus.showError("Couldn't find the repo you requested :(");
