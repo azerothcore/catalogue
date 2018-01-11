@@ -83,6 +83,12 @@ title: Details
                     $.get(iconUrl, (res) => {
                         this.logo = iconUrl;
                     });
+
+                    // parent -> repo from which this was forked
+                    // source -> original repo at the end of the chain
+                    if (this.repo.fork && this.repo.source != null) {
+                        Vue.set(mDetails.repo, 'owner', this.repo.source.owner);
+                    }
                 } else {
                     mStatus.showError("Couldn't find the repo you requested :(");
                 }
