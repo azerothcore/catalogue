@@ -58,14 +58,13 @@ title: Details
                 if (info)
                 {
                     this.repo = info;
+                    this.readme = this.repo.description || 'No description';
+
+                    mStatus.hideMessage();
+                    this.ready = true;
 
                     $.get(`https://raw.githubusercontent.com/${this.repo.full_name}/${this.repo.default_branch}/README.md`, (res) => {
                         this.readme = res ? res : this.repo.description;
-                    })
-                    .fail(() => { this.readme = this.repo.description || 'No description'; })
-                    .always(() => {
-                        mStatus.hideMessage();
-                        this.ready = true;
                     });
                 } else {
                     mStatus.showError("Couldn't find the repo you requested :(");
