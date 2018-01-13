@@ -20,6 +20,7 @@ nav .svg-inline--fa {
     background: #bbdefb url("/modules-catalogue/img/background.jpg") no-repeat center center;
     background-size: cover;
     color: #fff;
+    border-radius: 0;
 }
 
 #search .input-group-text,
