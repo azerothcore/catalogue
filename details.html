@@ -61,7 +61,7 @@ title: Details
         },
         computed: {
             compiledReadme: function () {
-              return marked(this.readme, { sanitize: true })
+              return marked(this.readme, { sanitize: false })
             }
         },
         methods: {
