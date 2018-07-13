@@ -11,79 +11,115 @@ layout: default
 
 <div class="row">
     <div class="col">
-        <div id="search" class="input-group">
-            <div class="input-group-prepend">
-                <span class="input-group-text"><i class="fas fa-search"></i></span>
-            </div>
-             <input id="acmodule_search" class="form-control" type="text" placeholder="Search a module by name..." required="true" v-on:keyup.enter="doSearch" v-model="words"/>
-        </div>
-        <p class="text-muted">Press Enter to submit</p>
-    </div>
-</div>
+        <span id="loading_status" v-if="show"><i :class="icon"></i> (( message ))</span>
 
-<div class="row">
-    <div class="col">
-        <p id="loading_status" v-if="show"><i :class="icon"></i> (( message ))</p>
-        <ul id="showcase" class="list-unstyled" v-if="items">
-            <li class="media" v-for="item of items">
-                <template>
-                    <img class="mr-3 logo-small" :src="item.logo" alt="logo">
-                    <div class="media-body">
-                        <h4 class="mt-0 mb-1">
-                            <a :href="'{{ site.baseurl }}/details.html?id=' + (( item.id ))">(( item.name ))</a>
-                        </h4>
-                        <p class="text-muted text-tiny"><i class="fas fa-star"></i> (( item.stargazers_count )) | Created (( item.created_at | created ))</p>
-                        <p>(( item.description ))</p>
+        <div id="searchForm">
+            <div class="search-bar">
+                <h4>Search a module by name:</h4>
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
                     </div>
-                </template>
-            </li>
-        </ul>
+                    <input class="form-control" type="text" placeholder="Search a module by name..." v-on:keyup.enter="searchModules" v-model="terms"/>
+                </div>
+                <p class="text-muted">Press Enter to submit</p>
+                <a href="#" v-if="submitted" v-on:click="showAll"><i class="fas fa-plus-circle"></i> Show all the modules...</a>
+            </div>
+
+            <ul class="list-unstyled mod-list" v-if="items">
+                <li class="media" v-for="item of items">
+                    <template>
+                        <img class="mr-3 logo-small" :src="item.logo" alt="logo">
+                        <div class="media-body">
+                            <h4 class="mt-0 mb-1">
+                                <a :href="'{{ site.baseurl }}/details.html?id=' + (( item.id ))">(( item.name ))</a>
+                            </h4>
+                            <p class="text-muted text-tiny"><i class="fas fa-star"></i> (( item.stargazers_count )) | Created (( item.created_at | created ))</p>
+                            <p>(( item.description ))</p>
+                        </div>
+                    </template>
+                </li>
+            </ul>
+
+            <div class="pagination" v-if="pagesAmount > 1">
+                <button type="button" v-on:click="previousPage">Previous</button>
+                <span>Total results: ((resultsAmount)). Showing page ((currentPage)) of ((pagesAmount)).</span>
+                <button type="button" v-on:click="nextPage">Next</button>
+            </div>
+        </div>
     </div>
 </div>
 
 <script type="text/javascript">
 
-var searchBar = new Vue({
-  el: '#acmodule_search',
-  data: {
-    words: ''
-  },
-  methods: {
-    doSearch: function() {
-      list_modules(this.words);
-      this.words = '';
-    }
-  }
-});
+let searchForm = new Vue({
+    el: '#searchForm',
+    delimiters: ['((', '))'],
+    data: {
+        terms: '',
+        items: [],
+        resultsAmount: 0,
+        resultsPerPage: 20,
+        currentPage: 1,
+        pagesAmount: 1,
+        submitted: false
+    },
+    methods: {
+        searchModules: function() {
+            searchStatus.showLoading();
+            var url  = `https://api.github.com/search/repositories?page=${this.currentPage}&per_page=${this.resultsPerPage}&q=org:azerothcore+fork:true+topic:core-module+sort:stars${((this.terms != '') ? '+'+this.terms : '')}`;
+            this.submitted = this.terms.length > 0;
 
-var mList = new Vue({
-  el: '#showcase',
-  delimiters: ['((', '))'],
-  data: {
-    items: []
-  },
-  methods: {
-    loadItems: function (_items) {
-        this.items = _items;
-
-        this.items.forEach((item, idx) =>{
-            item.logo = item.owner.avatar_url;
-            let iconUrl = `https://raw.githubusercontent.com/${item.full_name}/${item.default_branch}/icon.png`;
-            $.get(iconUrl, (res) => {
-                item.logo = iconUrl;
-                Vue.set(mList.items, idx, item);
+            $.getJSON(url, json => {
+                this.resultsAmount = json.total_count;
+                this.pagesAmount = Math.ceil(json.total_count / this.resultsPerPage);
+                
+                if (json.items.length > 0) {
+                    this.loadItems(json.items);
+                    searchStatus.hideMessage();
+                } else {
+                    searchStatus.showError('No results found');
+                }
             });
-        });
+        },
+        loadItems: function (_items) {
+            this.items = _items;
+            this.items.forEach((item, idx) => {
+                item.logo = item.owner.avatar_url;
+                let iconUrl = `https://raw.githubusercontent.com/${item.full_name}/${item.default_branch}/icon.png`;
+                $.get(iconUrl, (res) => {
+                    item.logo = iconUrl;
+                    Vue.set(this.items, idx, item);
+                })
+                .fail(() => {});
+            });
+        },
+        previousPage: function() {
+            if (this.currentPage == 1) return;
+
+            this.currentPage--;
+            this.searchModules();
+        },
+        nextPage: function() {
+            if (this.currentPage >= this.pagesAmount) return;
+
+            this.currentPage++;
+            this.searchModules();
+        },
+        showAll: function(event) {
+            event.preventDefault();
+            this.terms = '';
+            this.searchModules();
+        }
+    },
+    filters: {
+        created: function(date) {
+            return moment(date).fromNow();
+        }
     }
-  },
-  filters: {
-    created: function(date) {
-        return moment(date).fromNow();
-    }
-  }
 });
 
-var mStatus = new Vue({
+var searchStatus = new Vue({
     el: '#loading_status',
     delimiters: ['((', '))'],
     data: {
@@ -104,28 +140,10 @@ var mStatus = new Vue({
             this.message = 'Searching for repositories...';
             this.icon = 'fas fa-sync fa-spin';
             this.show = true;
-            mList.loadItems([]);
+            searchForm.loadItems([]);
         }
     }
 });
 
-function list_modules(search) {
-    mStatus.showLoading();
-
-    if (search != "")
-        search ='+'+search;
-    var url  = 'https://api.github.com/search/repositories?q=org:azerothcore+fork:true+topic:core-module+sort:stars' + search;
-
-    $.getJSON(url, json => {
-        if (json.items.length > 0)
-        {
-            mList.loadItems(json.items);
-            mStatus.hideMessage();
-        } else {
-            mStatus.showError('No results found');
-        }
-    });
-}
-
-$(document).ready(() => { list_modules('') });
+$(document).ready(() => { searchForm.searchModules('') });
 </script>

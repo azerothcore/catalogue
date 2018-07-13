@@ -118,3 +118,22 @@ li.media .tags span {
   font-size: .8em;
   margin: 0;
 }
+
+.pagination, .search-bar, .mod-list {
+    margin-top: 2em;
+}
+
+.pagination * {
+    margin-right: 5px;
+}
+
+.pagination button {
+    display: inline-block;
+    width: 5em;
+    height: 1.8em;
+    border-radius: 5px;
+    background-color: #ccc;
+    color: #444;
+    box-shadow: none;
+    border: none;
+}
