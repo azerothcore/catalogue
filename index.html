@@ -114,7 +114,7 @@ function list_modules(search) {
 
     if (search != "")
         search ='+'+search;
-    var url  = 'https://api.github.com/search/repositories?q=org:azerothcore+fork:true+topic:core-module+sort:stars&per_page=100' + search;
+    var url  = 'https://api.github.com/search/repositories?q=org:azerothcore+fork:true+topic:core-module+sort:stars' + search;
 
     $.getJSON(url, json => {
         if (json.items.length > 0)
