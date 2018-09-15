@@ -1,0 +1,18 @@
+# Module info
+
+- Name: Learn Spells on levelup
+- Author: Conan / XxTryXx For the spells / Me for the updated on file
+- Repository: https://github.com/pedroevil51/mod-spells-updated-ac
+- Download: https://github.com/pedroevil51/mod-spells-updated-ac/archive/master.zip
+- License: AGPL
+
+# Module integration
+
+- AzerothCore hash/commit compliance: 205e8eb
+- Includes configuration (.conf)?: Yes, copied by CMake
+- Includes SQL patches?: No
+
+# Description
+
+This module allows your players to learn spell on level up , just like in other expansions
+This is a updated version ,as it fixs some wrong spells learning.
