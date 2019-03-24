@@ -18,8 +18,6 @@
     + WorldScript: OnBeforeConfigLoad
 
 # Description
-
-# Description
 World Chat Module enables you to talk globally with your faction or with both factions (if enabled by server).
 
 The GM can see both factions messages if he has the chat active and gm mode on. (.gm on)
