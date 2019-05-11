@@ -1,14 +1,14 @@
 # Module info
 
-- Name: Skeleton
-- Author: AzerothCore
+- Name: mod-pvp-titles
+- Author: Milestorme
 - Repository: https://github.com/milestorme/mod-pvp-titles
 - Download: https://github.com/milestorme/mod-pvp-titles/archive/master.zip
 - License: AGPL
 
 # Module integration
 
-- AzerothCore hash/commit compliance: 90ed254
+- AzerothCore hash/commit compliance: 4b27100
 - Includes configuration (.conf)?: Yes, copied by CMake
 - Includes SQL patches?: No
 - CMake hooks used:
