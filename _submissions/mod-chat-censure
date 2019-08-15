@@ -1,0 +1,19 @@
+Name: Chat Censure
+Author: Veridisquo
+Repository: https://github.com/xDevICCI/module_chat_censure
+Download: https://github.com/poszer/module_chat_censure/archive/master.zip
+License: AGPL
+Module integration
+AzerothCore hash/commit compliance: 90ed254
+Includes configuration (.conf)?: No
+Includes SQL : No
+CMake hooks used:
+AFTER_WORLDSERVER_CMAKE
+Core hooks used:
+PlayerScript: OnLogin
+WorldScript: OnBeforeConfigLoad
+Description
+
+Module created to block insults or any type of word that offends a person or Staff.
+
+Contributions to Azerothcore
