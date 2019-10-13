@@ -23,30 +23,46 @@
 </head>
 <body>
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a class="navbar-brand" href="/">
-            <img src="{{ site.baseurl }}/img/logo-small.png" alt="logo"> AzerothCore
-        </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <div class="container">
+          <a class="navbar-brand" href="/">
+              <img src="{{ site.baseurl }}/img/logo-small.png" alt="logo"> AzerothCore
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
 
-        <div class="collapse navbar-collapse" id="mainNav">
+          <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}/"><i class="fa fa-list"></i> List</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ site.baseurl }}/submit.html"><i class="far fa-plus-square"></i> Submit</a>
-                </li>
-
-                <li class="nav-item">
-                    <a class="nav-link" href="https://github.com/AzerothCore/"><i class="fab fa-github"></i> Repositories</a>
-                </li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="http://www.azerothcore.org"><i class="fa fa-caret-left"></i> Back to Website</a>
-                </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="https://github.com/AzerothCore/"><i class="fab fa-github"></i> Repositories</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="communityMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-users"></i> Community<span class="caret"></span>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="communityMenu">
+                  <a class="dropdown-item" href="https://github.com/azerothcore/forum/issues/"><i class="far fa-newspaper"></i> Forum</a>
+                  <a class="dropdown-item" href="http://azerothcore.altervista.org/wp/" target="_blank"><i class="fa fa-rss"></i> Blog</a>
+                  <a class="dropdown-item" href="https://stackoverflow.com/questions/tagged/azerothcore?sort=newest" target="_blank"><i class="fab fa-stack-overflow"></i> StackOverflow</a>
+                  <a class="dropdown-item" href="https://discord.gg/gkt4y2x" target="_blank"><i class="fa fa-comments"></i> Chat</a>
+                  <a class="dropdown-item" href="https://www.bountysource.com/teams/azerothcore" target="_blank"><i class="fas fa-dollar-sign"></i> Bountysource</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="{{ site.baseurl }}/modules-catalogue/"><i class="fas fa-cloud-download-alt"></i> Modules</a>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="infoMenu" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fa fa-info-circle"></i> Info<span class="caret"></span>
+                  </a>
+                  <div class="dropdown-menu" aria-labelledby="infoMenu">
+                    <a class="dropdown-item" href="{{ site.baseurl }}/wiki/"><i class="fab fa-wikipedia-w"></i> Wiki</a>
+                    <a class="dropdown-item" href="{{ site.baseurl }}/showcase"><i class="far fa-thumbs-up"></i> Testimonials</a>
+                  </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="{{ site.baseurl }}/donators"><i class="fa fa-heart" aria-hidden="true"></i></i> Donation</a>
+              </li>
             </ul>
             <ul class="navbar-nav my-2">
                 <li class="nav-item">
@@ -57,12 +73,13 @@
                         <a class="btn btn-social" href="https://twitter.com/azeroth_core" target="_blank">
                             <i class="fab fa-twitter"></i>
                         </a>
-                        <a class="btn btn-social" href="https://plus.google.com/107715889642766816397" target="_blank">
-                            <i class="fab fa-google-plus"></i>
+                        <a class="btn btn-social" href="https://www.linkedin.com/company/azerothcore" target="_blank">
+                          <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
                 </li>
             </ul>
+          </div>
         </div>
     </nav>
 
@@ -96,7 +113,7 @@
     </footer>
 
 
-    <script src="https://use.fontawesome.com/releases/v5.0.2/js/all.js" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/releases/v5.11.2/js/all.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
 </body>
