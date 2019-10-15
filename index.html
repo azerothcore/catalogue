@@ -29,16 +29,19 @@ layout: default
             </div>
           </div>
 
-            <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <ul class="nav nav-tabs" role="tablist">
               <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#all" role="tab" aria-controls="home" aria-selected="true">All</a>
+                <a class="nav-link active" id="modules-tab" data-toggle="tab" href="#modules" role="tab" aria-controls="modules" aria-selected="true">All</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#premium" role="tab" aria-controls="profile" aria-selected="false">Premium</a>
+                <a class="nav-link" id="premium-tab" data-toggle="tab" href="#premium" role="tab" aria-controls="premium" aria-selected="false">Premium</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" id="tools-tab" data-toggle="tab" href="#tools" role="tab" aria-controls="tools" aria-selected="false">Tools</a>
               </li>
             </ul>
             <div class="tab-content">
-              <div class="tab-pane fade show active" id="all" role="tabpanel" aria-labelledby="home-tab">
+              <div class="tab-pane fade show active" id="modules" role="tabpanel" aria-labelledby="modules-tab">
 
                 <ul class="list-unstyled mod-list" v-if="items">
                     <li class="media" v-for="item of items">
@@ -62,7 +65,7 @@ layout: default
                 </div>
 
               </div>
-              <div class="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="profile-tab">
+              <div class="tab-pane fade" id="premium" role="tabpanel" aria-labelledby="premium-tab">
 
                 <ul class="list-unstyled mod-list" v-if="items_premium">
                   <li class="media" v-for="item of items_premium">
@@ -82,12 +85,35 @@ layout: default
               <div class="pagination" v-if="pagesPremiumAmount > 1">
                   <button type="button" v-on:click="previousPage">Previous</button>
                   <span>Total results: ((resultsAmount)). Showing page ((currentPage)) of ((pagesPremiumAmount)).</span>
-                  <button type="button" v-on:click="nextPage(true)">Next</button>
+                  <button type="button" v-on:click="nextPage(1)">Next</button>
               </div>
 
-
-              </div>
             </div>
+            <div class="tab-pane fade" id="tools" role="tabpanel" aria-labelledby="tools-tab">
+
+              <ul class="list-unstyled mod-list" v-if="items_tools">
+                <li class="media" v-for="item of items_tools">
+                    <template>
+                        <img class="mr-3 logo-small" :src="item.logo" alt="logo">
+                        <div class="media-body">
+                            <h4 class="mt-0 mb-1">
+                                <a :href="'{{ site.baseurl }}/details.html?id=' + (( item.id ))">(( item.name ))</a>
+                            </h4>
+                            <p class="text-muted text-tiny"><i class="fas fa-star"></i> (( item.stargazers_count )) | Created (( item.created_at | created ))</p>
+                            <p>(( item.description ))</p>
+                        </div>
+                    </template>
+                </li>
+              </ul>
+
+              <div class="pagination" v-if="pagesToolsAmount > 1">
+                <button type="button" v-on:click="previousPage">Previous</button>
+                <span>Total results: ((resultsAmount)). Showing page ((currentPage)) of ((pagesToolsAmount)).</span>
+                <button type="button" v-on:click="nextPage(2)">Next</button>
+              </div>
+
+            </div>
+          </div>
 
         </div>
 
@@ -107,12 +133,15 @@ let searchForm = new Vue({
         terms: '',
         items: [],
         items_premium: [],
+        items_tools: [],
         resultsAmount: 0,
         resultsPremiumAmount: 0,
+        resultsToolsAmount: 0,
         resultsPerPage: 20,
         currentPage: 1,
         pagesAmount: 1,
         pagesPremiumAmount: 1,
+        pagesToolsAmount: 1,
         submitted: false
     },
     methods: {
@@ -141,7 +170,22 @@ let searchForm = new Vue({
                 this.pagesPremiumAmount = Math.ceil(json.total_count / this.resultsPerPage);
                 
                 if (json.items.length > 0) {
-                    this.loadItems(json.items, true);
+                    this.loadItems(json.items, 1);
+                    searchStatus.hideMessage();
+                } else {
+                    searchStatus.showError('No results found');
+                }
+            });
+
+            url  = `https://api.github.com/search/repositories?page=${this.currentPage}&per_page=${this.resultsPerPage}&q=org:azerothcore+fork:true+topic:tools+sort:stars${((this.terms != '') ? '+'+this.terms : '')}`;
+            this.submitted = this.terms.length > 0;
+
+            $.getJSON(url, json => {
+                this.resultsToolsAmount = json.total_count;
+                this.pagesToolsAmount = Math.ceil(json.total_count / this.resultsPerPage);
+                
+                if (json.items.length > 0) {
+                    this.loadItems(json.items, 2);
                     searchStatus.hideMessage();
                 } else {
                     searchStatus.showError('No results found');
@@ -149,8 +193,8 @@ let searchForm = new Vue({
             });
 
         },
-        loadItems: function (_items, premium=false) {
-          if (!premium) {
+        loadItems: function (_items, tab=0) {
+          if (tab == 0) {
             this.items = _items;
             this.items.forEach((item, idx) => {
                 item.logo = item.owner.avatar_url;
@@ -162,7 +206,7 @@ let searchForm = new Vue({
                 .fail(() => {});
             });
           }
-          else {
+          else if (tab == 1) {
             this.items_premium = _items;
             this.items_premium.forEach((item, idx) => {
                 item.logo = item.owner.avatar_url;
@@ -174,7 +218,18 @@ let searchForm = new Vue({
                 .fail(() => {});
             });
           }
-
+          else if (tab == 2) {
+            this.items_tools = _items;
+            this.items_tools.forEach((item, idx) => {
+                item.logo = item.owner.avatar_url;
+                let iconUrl = `https://raw.githubusercontent.com/${item.full_name}/${item.default_branch}/icon.png`;
+                $.get(iconUrl, (res) => {
+                    item.logo = iconUrl;
+                    Vue.set(this.items_tools, idx, item);
+                })
+                .fail(() => {});
+            });
+          }
         },
         previousPage: function() {
             if (this.currentPage == 1) return;
@@ -182,9 +237,10 @@ let searchForm = new Vue({
             this.currentPage--;
             this.searchModules();
         },
-        nextPage: function(premium=false) {
-            if (!premium && this.currentPage >= this.pagesAmount) return;
-            if (premium === true && this.currentPage >= this.pagesPremiumAmount) return;
+        nextPage: function(tab=0) {
+            if (tab == 0 && this.currentPage >= this.pagesAmount) return;
+            if (tab == 1 && this.currentPage >= this.pagesPremiumAmount) return;
+            if (tab == 2 && this.currentPage >= this.pagesToolsAmount) return;
 
             this.currentPage++;
             this.searchModules();
