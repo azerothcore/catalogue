@@ -11,16 +11,13 @@ nav .svg-inline--fa {
     display: inline;
 }
 
-.row {
-  padding-top: 2em;
-  padding-bottom: 2em;
-}
-
 #jumbo {
-    background: #bbdefb url("/modules-catalogue/img/background.jpg") no-repeat center center;
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.5) 100%), url("/modules-catalogue/img/background.jpg");
     background-size: cover;
     color: #fff;
     border-radius: 0;
+    height: 100px;
+    padding: 25px;
 }
 
 #search .input-group-text,
@@ -119,7 +116,7 @@ li.media .tags span {
   margin: 0;
 }
 
-.pagination, .search-bar, .mod-list {
+.pagination, .alert-submit, .mod-list {
     margin-top: 2em;
 }
 
