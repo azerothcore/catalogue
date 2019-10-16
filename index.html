@@ -16,7 +16,7 @@ layout: default
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-search"></i></span>
                       </div>
-                      <input class="form-control" type="text" placeholder="Search a module by name..." v-on:keyup.enter="searchModules" v-model="terms"/>
+                      <input class="form-control" type="text" placeholder="Search a module/tools by name..." v-on:keyup.enter="searchModules" v-model="terms"/>
                   </div>
                   <p class="text-muted">Press Enter to submit</p>
                   <a href="#" v-if="submitted" v-on:click="showAll"><i class="fas fa-plus-circle"></i> Show all the modules...</a>
