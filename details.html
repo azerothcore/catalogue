@@ -6,7 +6,7 @@ title: Details
 ---
 
 <p id="loading_status" v-if="show"><i :class="icon"></i> (( message ))</p>
-<div id="mod_details" class="content" v-if="ready">
+<div id="repo_details" class="content" v-if="ready">
     <div class="row">
         <div class="col">
             <a class="go-back" href="{{ site.baseurl }}/"><i class="fa fa-caret-left"></i> Go back</a>
@@ -29,12 +29,13 @@ title: Details
         <div class="col-12 col-md-8">
             <div v-html="compiledReadme"></div>
         </div>
-        <div id="about" class="col-12 col-md-4">
+        <div class="col-12 col-md-4">
+          <div id="about">
             <a class="btn btn-lg btn-success" target="_blank" :href="repo.html_url + '/archive/' + repo.default_branch + '.zip'">Download <i class="fa fa-download"></i></a>
 
             <h3>About this repo</h3>
             <ul class="list-unstyled">
-                <li><i class="fas fa-globe fa-fw"></i> Module ID:  <span class="float-right">(( repo.id ))</span></li>
+                <li><i class="fas fa-globe fa-fw"></i> Repo ID:  <span class="float-right">(( repo.id ))</span></li>
                 <li><i class="far fa-user-circle fa-fw"></i> Author: <span class="float-right">(( repo.owner.login ))</span></li>
                 <li><i class="fab fa-github fa-fw"></i> Repo: <a class="float-right" target="_blank" :href="repo.html_url">View on Github <i class="fa fa-external-link-alt"></i></a></li>
                 <li><i class="fas fa-eye fa-fw"></i> Watchers: <span class="float-right">(( repo.watchers_count ))</span></li>
@@ -44,6 +45,7 @@ title: Details
                 <li><i class="fas fa-clock fa-fw"></i> Last update: <span class="float-right">(( repo.updated_at | dateFromNow ))</li>
                 <li><i class="fas fa-balance-scale fa-fw"></i> License: <span class="float-right" v-if="repo.license">(( repo.license.spdx_id ))</span></li>
             </ul>
+          </div>
         </div>
     </div>
 </div>
@@ -51,7 +53,7 @@ title: Details
 <script src="https://unpkg.com/marked@0.3.6"></script>
 <script>
     var mDetails = new Vue({
-        el: '#mod_details',
+        el: '#repo_details',
         delimiters: ['((', '))'],
         data: {
             logo: '',

@@ -65,6 +65,11 @@ li.media .tags span {
     cursor: pointer;
 }
 
+#about {
+  background-color: #fff;
+  border: solid 2px #ededed;
+  padding: 25px;
+}
 #about .btn {
     margin-bottom: 30px;
 }
