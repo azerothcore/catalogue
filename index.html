@@ -11,7 +11,7 @@ layout: default
           <div class="row">
             <div class="col-6">
               <div class="search-bar">
-                  <h4>Search a modules/tool by name:</h4>
+                  <h4>Search a item by name:</h4>
                   <div class="input-group">
                       <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fas fa-search"></i></span>
@@ -19,12 +19,12 @@ layout: default
                       <input class="form-control" type="text" placeholder="Search a module/tools by name..." v-on:keyup.enter="searchModules" v-model="terms"/>
                   </div>
                   <p class="text-muted">Press Enter to submit</p>
-                  <a href="#" v-if="submitted" v-on:click="showAll"><i class="fas fa-plus-circle"></i> Show all the modules...</a>
+                  <a href="#" v-if="submitted" v-on:click="showAll"><i class="fas fa-plus-circle"></i> Show all the items...</a>
               </div>
             </div>
             <div class="col-6">
                 <div class="col alert alert-info alert-submit">
-                    <p>Want to submit your module? Check the instructions <a href="{{ site.baseurl }}/submit.html">here</a></p>
+                    <p>Want to submit your project? Check the instructions <a href="{{ site.baseurl }}/submit.html">here</a></p>
                 </div>
             </div>
           </div>

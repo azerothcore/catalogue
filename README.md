@@ -1,5 +1,6 @@
-# module-catalogue
-Catalogue of AzerothCore Modules
+# AzerothCore Catalogue
+
+Catalogue of AzerothCore
 
 
 ## How to install locally (development)
