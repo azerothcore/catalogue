@@ -24,7 +24,8 @@ layout: default
             </div>
             <div class="col-6">
                 <div class="col alert alert-info alert-submit">
-                    <p>Want to submit your project? Check the instructions <a href="{{ site.baseurl }}/submit.html">here</a></p>
+                    <p>Want to submit your <b>module</b>? Check the instructions <a href="{{ site.baseurl }}/module-submit.html">here</a></p>
+                    <p>Want to submit your <b>lua script</b>? Check the instructions <a href="{{ site.baseurl }}/script-submit.html">here</a></p>
                 </div>
             </div>
           </div>
@@ -60,7 +61,7 @@ layout: default
                         </template>
                     </li>
                 </ul>
-  
+
                 <div class="pagination" v-if="pagesAmount > 1">
                     <button type="button" v-on:click="previousPage">Previous</button>
                     <span>Total results: ((resultsAmount)). Showing page ((currentPage)) of ((pagesAmount)).</span>
@@ -184,7 +185,7 @@ let searchForm = new Vue({
             $.getJSON(url, json => {
                 this.resultsAmount = json.total_count;
                 this.pagesAmount = Math.ceil(json.total_count / this.resultsPerPage);
-                
+
                 if (json.items.length > 0) {
                     this.loadItems(json.items);
                     searchStatus.hideMessage();
@@ -199,7 +200,7 @@ let searchForm = new Vue({
             $.getJSON(url, json => {
                 this.resultsPremiumAmount = json.total_count;
                 this.pagesPremiumAmount = Math.ceil(json.total_count / this.resultsPerPage);
-                
+
                 if (json.items.length > 0) {
                     this.loadItems(json.items, 1);
                     searchStatus.hideMessage();
@@ -214,7 +215,7 @@ let searchForm = new Vue({
             $.getJSON(url, json => {
                 this.resultsToolsAmount = json.total_count;
                 this.pagesToolsAmount = Math.ceil(json.total_count / this.resultsPerPage);
-                
+
                 if (json.items.length > 0) {
                     this.loadItems(json.items, 2);
                     searchStatus.hideMessage();
@@ -229,7 +230,7 @@ let searchForm = new Vue({
             $.getJSON(url, json => {
                 this.resultsLuaAmount = json.total_count;
                 this.pagesLuaAmount = Math.ceil(json.total_count / this.resultsPerPage);
-                
+
                 if (json.items.length > 0) {
                     this.loadItems(json.items, 3);
                     searchStatus.hideMessage();
