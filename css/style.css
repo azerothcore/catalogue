@@ -12,7 +12,7 @@ nav .svg-inline--fa {
 }
 
 #jumbo {
-    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.5) 100%), url("/modules-catalogue/img/background.jpg");
+    background-image: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%,rgba(0,0,0,0.5) 100%), url("/catalogue/img/background.jpg");
     background-size: cover;
     color: #fff;
     border-radius: 0;

@@ -18,6 +18,6 @@ Well, now you can run locally the app using:
 bundle exec jekyll serve
 ```
 
-If everything succeds, you can visit your web app at `http://127.0.0.1:4000/modules-catalogue/`.
+If everything succeds, you can visit your web app at `http://127.0.0.1:4000/catalogue/`.
 
-Any problems? [Open a issue](https://github.com/azerothcore/modules-catalogue/issues/new).
+Any problems? [Open a issue](https://github.com/azerothcore/catalogue/issues/new).
