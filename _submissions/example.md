@@ -1,4 +1,4 @@
-# Module info
+# Module & Lua Script info
 
 - Name: Skeleton
 - Author: AzerothCore
@@ -13,9 +13,13 @@
 - Includes SQL patches?: No
 - CMake hooks used:
     + AFTER_WORLDSERVER_CMAKE
-- Core hooks used: 
+- Core hooks used:
     + PlayerScript: OnLogin
     + WorldScript: OnBeforeConfigLoad
+
+# Lua Script integration
+- Includes configuration (.ext)?: Yes, copied by User
+- Includes SQL patches?: No
 
 # Description
 
