@@ -2,8 +2,12 @@
 
 - Name: Skeleton
 - Author: AzerothCore
-- Repository: https://github.com/azerothcore/skeleton-module
-- Download: https://github.com/azerothcore/skeleton-module/archive/master.zip
+- Module Skeleton:
+  + Repository: https://github.com/azerothcore/skeleton-module
+  + Download: https://github.com/azerothcore/skeleton-module/archive/master.zip
+- Lua_Script Skeleton:
+  + Repository: https://github.com/azerothcore/skeleton-lua_script
+  + Download: https://github.com/azerothcore/skeleton-lua_script/archive/master.zip
 - License: AGPL
 
 # Module integration
