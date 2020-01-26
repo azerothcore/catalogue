@@ -3,7 +3,7 @@
 - Name: lua-modRate-exp
 - Author: iThorgrim-hub
 - Repository: https://github.com/iThorgrim-hub/lua-modrate-exp
-- Download: https://github.com/iThorgrim-hub/lua-modrate-exp/archive/0.0.1.zip
+- Download: https://github.com/iThorgrim-hub/lua-modrate-exp/archive/0.0.2.zip
 - License: AGPL
 
 # Script integration
