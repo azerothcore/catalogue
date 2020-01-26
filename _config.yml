@@ -6,4 +6,4 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 title: AzerothCore  Catalogue
 description: List of items for the AzerothCore project
-baseurl: "/modules-catalogue" # Subfolder of www.azerothcore.org, leave empty for local development
+baseurl: "/catalogue" # Subfolder of www.azerothcore.org, leave empty for local development
