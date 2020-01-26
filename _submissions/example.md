@@ -1,9 +1,13 @@
-# Module info
+# Module & Lua Script info
 
 - Name: Skeleton
 - Author: AzerothCore
-- Repository: https://github.com/azerothcore/skeleton-module
-- Download: https://github.com/azerothcore/skeleton-module/archive/master.zip
+- Module Skeleton:
+  + Repository: https://github.com/azerothcore/skeleton-module
+  + Download: https://github.com/azerothcore/skeleton-module/archive/master.zip
+- Lua_Script Skeleton:
+  + Repository: https://github.com/azerothcore/skeleton-lua_script
+  + Download: https://github.com/azerothcore/skeleton-lua_script/archive/master.zip
 - License: AGPL
 
 # Module integration
@@ -13,9 +17,13 @@
 - Includes SQL patches?: No
 - CMake hooks used:
     + AFTER_WORLDSERVER_CMAKE
-- Core hooks used: 
+- Core hooks used:
     + PlayerScript: OnLogin
     + WorldScript: OnBeforeConfigLoad
+
+# Lua Script integration
+- Includes configuration (.ext)?: Yes, copied by User
+- Includes SQL patches?: No
 
 # Description
 
