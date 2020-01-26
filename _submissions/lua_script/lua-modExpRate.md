@@ -1,4 +1,4 @@
-# Module info
+# Script info
 
 - Name: lua-modRate-exp
 - Author: iThorgrim-hub
@@ -6,7 +6,7 @@
 - Download: https://github.com/iThorgrim-hub/lua-modrate-exp/archive/0.0.1.zip
 - License: AGPL
 
-# Module integration
+# Script integration
 
 - Includes configuration (.ext)?: No, configuration is in the script.
 - Includes SQL patches?: No, SQL injection in the script too.
