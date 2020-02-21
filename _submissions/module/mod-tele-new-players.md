@@ -12,8 +12,6 @@
 - AzerothCore hash/commit compliance: 90ed254
 - Includes configuration (.conf)?: Yes, copied by CMake
 - Includes SQL patches?: No
-- CMake hooks used:
-    + AFTER_WORLDSERVER_CMAKE
 - Core hooks used:
     + PlayerScript: OnLogin, OnFirstLogin
 
