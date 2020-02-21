@@ -18,4 +18,4 @@
 # Description
 
 This module allows you to config coords for alliance and horde to teleport the new players after the first login (Ideal for PvP servers).
-You cal also enable option to clean the player inventory on first login.
+You can also enable an option to clean the player's inventory on first login.
