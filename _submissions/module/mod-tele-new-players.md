@@ -17,5 +17,5 @@
 
 # Description
 
-This module allows you to config coords for alliance and horde to teleport the new players after the first login (Ideal for PvP servers).
+This module teleports new characters on first login to a location defined in the configuration file (ideal for PvP servers).
 You can also enable an option to clean the player's inventory on first login.
