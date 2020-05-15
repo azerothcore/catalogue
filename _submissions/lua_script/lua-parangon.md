@@ -2,8 +2,8 @@
 
 - Name: lua-parangon
 - Author: iThorgrim-hub
-- Repository: https://github.com/Thanatos-Hub/lua-parangon/tree/master
-- Download: https://github.com/Thanatos-Hub/lua-parangon/archive/master.zip
+- Repository: https://github.com/Open-Wow/lua-parangon/tree/master
+- Download: https://github.com/Open-Wow/lua-parangon/archive/master.zip
 - License: AGPL
 
 # Script integration
