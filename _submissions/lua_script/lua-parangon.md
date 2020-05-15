@@ -1,7 +1,7 @@
 # Script info
 
 - Name: lua-parangon
-- Author: iThorgrim-hub
+- Author: Open-Wow
 - Repository: https://github.com/Open-Wow/lua-parangon/tree/master
 - Download: https://github.com/Open-Wow/lua-parangon/archive/master.zip
 - License: AGPL
