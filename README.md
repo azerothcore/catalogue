@@ -2,6 +2,8 @@
 
 Catalogue of AzerothCore
 
+The development has been moved [here](https://github.com/azerothcore/azerothcore.github.io/blob/master/catalogue.html).
+
 
 ## How to install locally (development)
 
